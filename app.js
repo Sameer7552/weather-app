@@ -59,12 +59,9 @@ const getlocation = () => {
 
 // Function to check weather
 async function checkWeather() {
+
   try {
-    let cityCheck = document.getElementById("search");
-    if (cityCheck.value != "") {
-      city = cityCheck.value;
-    }
-    console.log(city);
+    cityname()
     // const response = await fetch(apiUrl + `&q=${city}` + `&appid=${apiKey}`);
     // const data = await response.json();
     const response2 = await fetch(
@@ -77,7 +74,6 @@ async function checkWeather() {
     } else {
       // console.log(data);
       console.log(data2);
-      console.log(city);
       document.getElementById("degree").innerHTML = Math.round(data2.main.temp);
       document.getElementById("city").innerHTML = city;
       document.getElementById("max_temp").innerHTML = `${Math.round(
@@ -153,7 +149,7 @@ async function checkWeather() {
       document.getElementById("datetime").innerHTML = localTimeStr;
       
       background(weather, clouds, checktime(hours))
-      cityCheck.value = `${city}, ${data2.sys.country}`;
+      updatesearch(city, data2.sys.country)
     }
   } catch (error) {
     console.log(error.message);
@@ -162,7 +158,20 @@ async function checkWeather() {
     hideLoading();
   }
 }
-
+//change search 
+const updatesearch = (city, country) => {
+  console.log(city)
+  console.log(country)
+  var update = document.getElementById("search");
+  update.value = `${city}, ${country}`;
+}
+//get city name
+const cityname = () => {
+  var citycheck = document.getElementById("search").value;
+  if (citycheck != "") {
+    city = citycheck.split(',')[0];
+  }
+}
 //capital first letter
 document.addEventListener("DOMContentLoaded", function () {
   const inputElement = document.getElementById("search");
@@ -178,9 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //background change
 const background = (weather, clouds, time) => {
-  console.log(weather);
-  console.log(clouds);
-  console.log(time);
 
   var backgroundImg = document.getElementById('weather-info');
 
