@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link
+      rel="shortcut icon"
+      href="./Images/Logo/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="font-awesome/css/all.css" />
+    <title>Weather Web</title>
+  </head>
+  <body>
+    <div id="loading">
+      <div class="loading-pos">
+        <div
+          class="spinner-grow"
+          role="status"
+          style="width: 4rem; height: 4rem"
+        ></div>
+        <div class="load text-center"></div>
+      </div>
+    </div>
+
+    <div class="background" id="weather-info">
+      <div class="my-container">
+        <div class="left-section">
+          <div class="top-section ">
+            <img
+              src="./Images/Logo/logo.png"
+              alt="logo"
+              height="90"
+              width="170px"
+            />
+          </div>
+          <div class="bottom-sections">
+            <div class="weather mb-5">
+              <div class="row align-items-center weather-row">
+                <div class="col-auto" style="padding-right: 0% !important;">
+                  <p class="degree" id="degree">00</p>
+                </div>
+                <div class="col-auto" style="padding-left: 0% !important;">
+                  <sup class="deg-sup">o</sup>
+                </div>
+                <div class="col-auto">
+                  <p class="city" id="city">City</p>
+                  <div class="current">
+                    <span id="datetime"></span>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <img id="icon"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-section">
+            <div class="right-div">
+                <div class="search-box row mt-3 p-3">
+                    <div class="col-10">
+                      <input
+                        type="text"
+                        name="search"
+                        id="search"
+                        placeholder="Search..."
+                      />
+                    </div>
+                    <div class="col-2" style="cursor: pointer" onclick="checkWeather()">
+                      <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h2 class="detail mt-5">Weather Details</h2>
+                  </div>
+        
+                  <div>
+                    <h1 id="weather" class="mt-5">Weather</h1>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col text-start temp-txt">Feel's Like</div>
+                    <div class="col text-end">
+                      <p id="like" class="temp"></p>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col text-start temp-txt">Temp Max</div>
+                    <div class="col text-end">
+                      <p id="max_temp" class="temp"></p>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col text-start temp-txt">Temp Min</div>
+                    <div class="col text-end">
+                      <p id="min_temp" class="temp"></p>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col text-start temp-txt">Clouds</div>
+                    <div class="col text-end">
+                      <p id="clouds" class="temp"></p>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col text-start temp-txt">Humidity</div>
+                    <div class="col text-end">
+                      <p id="humidity" class="temp"></p>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col text-start temp-txt">Wind</div>
+                    <div class="col text-end">
+                      <p id="wind" class="temp"></p>
+                    </div>
+                  </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
